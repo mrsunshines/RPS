@@ -85,14 +85,20 @@ function playerPick(playerPick) {
 function checkRoundWinner(playerPick, computerPick) {
   playerResultElem.innerHTML = computerResultElem.innerHTML = '';
   console.log('' +  computer.score + ' Komputer vs. ' + player.name, player.score + ' ');
-	if (computer.score == 9 ) { 
-		alert('Computer won 10th time and wins the Game ');
+	if (computer.score == 10 ) { 
 		gameState = 'ended';
 		setGameElements();
-	} else if (player.score == 9 ) { 
-		alert('' + player.name + 'won 10th time and wins the Game ');
+		var result = document.createElement('p'),
+			roundWinner = document.getElementById('round_winner');
+		result.innerHTML = 'The winner is Computer first scored ' + computer.score + ' wins vs. ' + player.score + ' ';
+		roundWinner.appendChild(result);
+	} else if (player.score == 10 ) { 
 		gameState = 'ended';
 		setGameElements();
+		var result = document.createElement('p'),
+			roundWinner = document.getElementById('round_winner');
+		result.innerHTML = 'The winner is ' + player.name + ' first scored ' + player.score + ' wins vs. ' + computer.score + ' ';
+		roundWinner.appendChild(result);
 	};
   var winnerIs = 'player';
 
