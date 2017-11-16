@@ -21,7 +21,8 @@ var gameState = 'notStarted', //'started ended'
 
 var newGameElem = document.getElementById('js-newGameElement'),
     pickElem = document.getElementById('js-playerPickElement'),
-    resultsElem = document.getElementById('js-resultsTableElement');
+    resultsElem = document.getElementById('js-resultsTableElement'),
+    roundWinner = document.getElementById('round_winner');
 
 function setGameElements() {
   switch(gameState) {
@@ -29,8 +30,10 @@ function setGameElements() {
         newGameElem.style.display = 'none';
         pickElem.style.display = 'block';
         resultsElem.style.display = 'block';
+        roundWinner.style.display = 'none';
       break;
     case 'ended':
+        roundWinner.style.display = 'block';
         newGameBtn.innerText = 'Jeszcze raz';
     case 'notStarted':
     default:
@@ -121,3 +124,4 @@ function checkRoundWinner(playerPick, computerPick) {
         computerPointsElem.innerText = computer.score;
     }
 }
+var result 
